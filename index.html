@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚽ Football Prediction Software</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚽ Football Prediction Software</h1>
+            <p>AI-Powered Match & Player Predictions</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="showTab('matches')">Match Predictions</button>
+            <button class="tab-btn" onclick="showTab('scores')">Score Predictions</button>
+            <button class="tab-btn" onclick="showTab('players')">Player Performance</button>
+            <button class="tab-btn" onclick="showTab('injuries')">Injury Risk</button>
+        </nav>
+
+        <!-- Match Predictions Tab -->
+        <div id="matches" class="tab-content active">
+            <h2>Match Outcome Prediction</h2>
+            <div class="input-group">
+                <input type="text" id="team1" placeholder="Enter Team 1">
+                <input type="text" id="team2" placeholder="Enter Team 2">
+                <button onclick="predictMatch()">Predict Winner</button>
+            </div>
+            <div id="matchResult" class="result"></div>
+        </div>
+
+        <!-- Score Predictions Tab -->
+        <div id="scores" class="tab-content">
+            <h2>Score Prediction</h2>
+            <div class="input-group">
+                <input type="text" id="scoreTeam1" placeholder="Enter Team 1">
+                <input type="text" id="scoreTeam2" placeholder="Enter Team 2">
+                <button onclick="predictScore()">Predict Score</button>
+            </div>
+            <div id="scoreResult" class="result"></div>
+        </div>
+
+        <!-- Player Performance Tab -->
+        <div id="players" class="tab-content">
+            <h2>Player Performance Prediction</h2>
+            <div class="input-group">
+                <input type="text" id="playerName" placeholder="Enter Player Name">
+                <input type="text" id="playerTeam" placeholder="Enter Team">
+                <button onclick="predictPlayer()">Analyze Player</button>
+            </div>
+            <div id="playerResult" class="result"></div>
+        </div>
+
+        <!-- Injury Risk Tab -->
+        <div id="injuries" class="tab-content">
+            <h2>Injury Risk Assessment</h2>
+            <div class="input-group">
+                <input type="text" id="injuryPlayer" placeholder="Enter Player Name">
+                <input type="text" id="injuryTeam" placeholder="Enter Team">
+                <button onclick="predictInjury()">Check Injury Risk</button>
+            </div>
+            <div id="injuryResult" class="result"></div>
+        </div>
+
+        <footer>
+            <p>Data powered by football-data.org | Made with ❤️ for football fans</p>
+        </footer>
+    </div>
+
+    <script src="predictor.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
