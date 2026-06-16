@@ -1,0 +1,249 @@
+<!-- Quick Start & Setup Instructions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Prediction - Quick Start</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #999;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .button.secondary {
+            background: #f0f0f0;
+            color: #667eea;
+            margin-top: 10px;
+        }
+        
+        .button.secondary:hover {
+            background: #e8eaf6;
+        }
+        
+        .feature-list {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature-list li {
+            list-style: none;
+            padding: 8px 0;
+            color: #666;
+        }
+        
+        .feature-list li:before {
+            content: "✅ ";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            background: #e8eaf6;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: #667eea;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .link-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .link-box strong {
+            color: #856404;
+        }
+        
+        .link-box code {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: block;
+            margin-top: 10px;
+            word-break: break-all;
+            font-size: 0.9em;
+        }
+        
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .copy-btn:hover {
+            background: #764ba2;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>⚽ Football Prediction</h1>
+        <p class="subtitle">AI-Powered Match & Player Predictions</p>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Teams</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Players</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Features</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">65-75%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+        </div>
+        
+        <h2 style="color: #764ba2; font-size: 1.3em; margin: 20px 0;">✨ What You Get</h2>
+        <ul class="feature-list">
+            <li>Match Outcome Predictions</li>
+            <li>Score Predictions</li>
+            <li>Player Performance Analysis</li>
+            <li>Injury Risk Assessments</li>
+        </ul>
+        
+        <h2 style="color: #764ba2; font-size: 1.3em; margin: 20px 0;">🚀 Get Started Now</h2>
+        
+        <a href="index.html" class="button">⚽ Open App Locally</a>
+        
+        <button class="button secondary" onclick="copyLink()">📋 Copy Your Link for Friends</button>
+        
+        <div class="link-box" id="linkBox" style="display: none;">
+            <strong>Share this link with friends:</strong>
+            <code id="shareLink">https://harryonabanwo-afk.github.io/Chat/</code>
+            <button class="copy-btn" onclick="copyToClipboard()">Copy Link</button>
+        </div>
+        
+        <h2 style="color: #764ba2; font-size: 1.3em; margin: 20px 0;">📚 Documentation</h2>
+        <a href="GUIDE.html" class="button secondary">📖 Full Guide & Examples</a>
+        <a href="DEPLOY.html" class="button secondary">🌐 Deployment Instructions</a>
+        
+        <h2 style="color: #764ba2; font-size: 1.3em; margin: 20px 0;">🎯 Try These Predictions</h2>
+        <div style="background: #f0f0f0; padding: 15px; border-radius: 8px; margin: 15px 0;">
+            <strong>Teams:</strong> Manchester City, Liverpool, Real Madrid, Barcelona, Bayern Munich<br>
+            <strong>Players:</strong> Erling Haaland, Cristiano Ronaldo, Lionel Messi, Kylian Mbappe, Mohamed Salah
+        </div>
+        
+        <h2 style="color: #764ba2; font-size: 1.3em; margin: 20px 0;">🔗 Project Links</h2>
+        <a href="https://github.com/harryonabanwo-afk/Chat" target="_blank" class="button secondary">
+            🐙 View on GitHub
+        </a>
+        
+        <div class="footer">
+            <p>Made with ❤️ for football fans worldwide</p>
+            <p>v1.0.0 | June 2026</p>
+        </div>
+    </div>
+    
+    <script>
+        function copyLink() {
+            document.getElementById('linkBox').style.display = 'block';
+        }
+        
+        function copyToClipboard() {
+            const link = document.getElementById('shareLink').textContent;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('✅ Link copied! Share it with your friends!');
+            }).catch(() => {
+                alert('Unable to copy. Please try again.');
+            });
+        }
+    </script>
+</body>
+</html>
