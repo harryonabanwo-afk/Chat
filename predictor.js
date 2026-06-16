@@ -1,5 +1,5 @@
-// Football Prediction Engine
-// Contains all prediction algorithms
+// Football Prediction Engine - EXPANDED VERSION
+// Contains all prediction algorithms with 30+ teams and 30+ players
 
 class FootballPredictor {
     constructor() {
@@ -13,16 +13,45 @@ class FootballPredictor {
         if (stored) return JSON.parse(stored);
         
         return {
+            // Premier League
             'Manchester United': { wins: 18, losses: 5, draws: 2, goalsFor: 65, goalsAgainst: 28 },
             'Liverpool': { wins: 19, losses: 3, draws: 3, goalsFor: 72, goalsAgainst: 22 },
             'Manchester City': { wins: 20, losses: 2, draws: 3, goalsFor: 78, goalsAgainst: 18 },
             'Arsenal': { wins: 17, losses: 6, draws: 2, goalsFor: 68, goalsAgainst: 32 },
             'Chelsea': { wins: 16, losses: 7, draws: 2, goalsFor: 62, goalsAgainst: 38 },
+            'Tottenham': { wins: 15, losses: 8, draws: 2, goalsFor: 61, goalsAgainst: 40 },
+            'Newcastle': { wins: 14, losses: 9, draws: 2, goalsFor: 55, goalsAgainst: 42 },
+            'Aston Villa': { wins: 13, losses: 10, draws: 2, goalsFor: 52, goalsAgainst: 45 },
+            'Brighton': { wins: 12, losses: 11, draws: 2, goalsFor: 48, goalsAgainst: 48 },
+            'Bournemouth': { wins: 11, losses: 12, draws: 2, goalsFor: 45, goalsAgainst: 52 },
+            
+            // La Liga
             'Real Madrid': { wins: 21, losses: 2, draws: 2, goalsFor: 85, goalsAgainst: 15 },
             'Barcelona': { wins: 18, losses: 5, draws: 2, goalsFor: 71, goalsAgainst: 28 },
+            'Atletico Madrid': { wins: 17, losses: 6, draws: 2, goalsFor: 64, goalsAgainst: 30 },
+            'Sevilla': { wins: 15, losses: 8, draws: 2, goalsFor: 58, goalsAgainst: 38 },
+            'Villarreal': { wins: 14, losses: 9, draws: 2, goalsFor: 55, goalsAgainst: 42 },
+            
+            // Bundesliga
             'Bayern Munich': { wins: 22, losses: 1, draws: 2, goalsFor: 88, goalsAgainst: 12 },
+            'Borussia Dortmund': { wins: 17, losses: 6, draws: 2, goalsFor: 68, goalsAgainst: 32 },
+            'Bayer Leverkusen': { wins: 16, losses: 7, draws: 2, goalsFor: 64, goalsAgainst: 36 },
+            'RB Leipzig': { wins: 15, losses: 8, draws: 2, goalsFor: 61, goalsAgainst: 39 },
+            'Schalke': { wins: 10, losses: 13, draws: 2, goalsFor: 42, goalsAgainst: 55 },
+            
+            // Serie A
+            'Juventus': { wins: 17, losses: 6, draws: 2, goalsFor: 63, goalsAgainst: 35 },
+            'AC Milan': { wins: 16, losses: 7, draws: 2, goalsFor: 62, goalsAgainst: 36 },
+            'Inter Milan': { wins: 18, losses: 5, draws: 2, goalsFor: 70, goalsAgainst: 26 },
+            'Napoli': { wins: 15, losses: 8, draws: 2, goalsFor: 59, goalsAgainst: 40 },
+            'AS Roma': { wins: 14, losses: 9, draws: 2, goalsFor: 56, goalsAgainst: 43 },
+            
+            // Ligue 1
             'PSG': { wins: 19, losses: 4, draws: 2, goalsFor: 75, goalsAgainst: 24 },
-            'Juventus': { wins: 17, losses: 6, draws: 2, goalsFor: 63, goalsAgainst: 35 }
+            'Marseille': { wins: 15, losses: 8, draws: 2, goalsFor: 58, goalsAgainst: 38 },
+            'Lens': { wins: 14, losses: 9, draws: 2, goalsFor: 54, goalsAgainst: 42 },
+            'Lyon': { wins: 12, losses: 11, draws: 2, goalsFor: 48, goalsAgainst: 50 },
+            'Monaco': { wins: 13, losses: 10, draws: 2, goalsFor: 51, goalsAgainst: 47 }
         };
     }
 
@@ -31,14 +60,41 @@ class FootballPredictor {
         if (stored) return JSON.parse(stored);
         
         return {
+            // Top Strikers
             'Cristiano Ronaldo': { team: 'Manchester United', goalsPerGame: 0.85, assistsPerGame: 0.2, injuryRisk: 0.15 },
-            'Lionel Messi': { team: 'PSG', goalsPerGame: 0.72, assistsPerGame: 0.35, injuryRisk: 0.12 },
             'Robert Lewandowski': { team: 'Bayern Munich', goalsPerGame: 0.92, assistsPerGame: 0.15, injuryRisk: 0.18 },
-            'Neymar': { team: 'PSG', goalsPerGame: 0.68, assistsPerGame: 0.45, injuryRisk: 0.35 },
+            'Erling Haaland': { team: 'Manchester City', goalsPerGame: 0.95, assistsPerGame: 0.10, injuryRisk: 0.25 },
             'Kylian Mbappe': { team: 'PSG', goalsPerGame: 0.88, assistsPerGame: 0.25, injuryRisk: 0.10 },
             'Harry Kane': { team: 'Bayern Munich', goalsPerGame: 0.76, assistsPerGame: 0.22, injuryRisk: 0.20 },
+            'Karim Benzema': { team: 'Real Madrid', goalsPerGame: 0.82, assistsPerGame: 0.18, injuryRisk: 0.22 },
+            'Lautaro Martinez': { team: 'Inter Milan', goalsPerGame: 0.79, assistsPerGame: 0.20, injuryRisk: 0.16 },
+            'Dusan Vlahovic': { team: 'Juventus', goalsPerGame: 0.75, assistsPerGame: 0.15, injuryRisk: 0.19 },
+            'Sergio Leon': { team: 'Real Sociedad', goalsPerGame: 0.68, assistsPerGame: 0.12, injuryRisk: 0.24 },
+            'Serge Gnabry': { team: 'Bayern Munich', goalsPerGame: 0.62, assistsPerGame: 0.28, injuryRisk: 0.20 },
+            
+            // Midfielders & Wingers
+            'Lionel Messi': { team: 'PSG', goalsPerGame: 0.72, assistsPerGame: 0.35, injuryRisk: 0.12 },
+            'Neymar': { team: 'PSG', goalsPerGame: 0.68, assistsPerGame: 0.45, injuryRisk: 0.35 },
             'Mohamed Salah': { team: 'Liverpool', goalsPerGame: 0.71, assistsPerGame: 0.28, injuryRisk: 0.22 },
-            'Erling Haaland': { team: 'Manchester City', goalsPerGame: 0.95, assistsPerGame: 0.10, injuryRisk: 0.25 }
+            'Vinicius Junior': { team: 'Real Madrid', goalsPerGame: 0.65, assistsPerGame: 0.32, injuryRisk: 0.18 },
+            'Phil Foden': { team: 'Manchester City', goalsPerGame: 0.58, assistsPerGame: 0.25, injuryRisk: 0.14 },
+            'Bukayo Saka': { team: 'Arsenal', goalsPerGame: 0.52, assistsPerGame: 0.22, injuryRisk: 0.26 },
+            'Jamal Musiala': { team: 'Bayern Munich', goalsPerGame: 0.55, assistsPerGame: 0.20, injuryRisk: 0.15 },
+            'Marco Asensio': { team: 'Real Madrid', goalsPerGame: 0.48, assistsPerGame: 0.18, injuryRisk: 0.20 },
+            'Pedri': { team: 'Barcelona', goalsPerGame: 0.32, assistsPerGame: 0.35, injuryRisk: 0.28 },
+            'Antoine Griezmann': { team: 'Atletico Madrid', goalsPerGame: 0.58, assistsPerGame: 0.24, injuryRisk: 0.17 },
+            
+            // Defenders & Midfielders
+            'Thiago Alcantara': { team: 'Liverpool', goalsPerGame: 0.08, assistsPerGame: 0.22, injuryRisk: 0.30 },
+            'Manuel Akanji': { team: 'Bayern Munich', goalsPerGame: 0.05, assistsPerGame: 0.08, injuryRisk: 0.12 },
+            'Virgil van Dijk': { team: 'Liverpool', goalsPerGame: 0.08, assistsPerGame: 0.12, injuryRisk: 0.10 },
+            'Rodri': { team: 'Manchester City', goalsPerGame: 0.12, assistsPerGame: 0.18, injuryRisk: 0.08 },
+            'Toni Kroos': { team: 'Real Madrid', goalsPerGame: 0.15, assistsPerGame: 0.25, injuryRisk: 0.16 },
+            'Eduardo Camavinga': { team: 'Real Madrid', goalsPerGame: 0.08, assistsPerGame: 0.14, injuryRisk: 0.18 },
+            'Gavi': { team: 'Barcelona', goalsPerGame: 0.10, assistsPerGame: 0.18, injuryRisk: 0.24 },
+            'De Bruyne': { team: 'Manchester City', goalsPerGame: 0.35, assistsPerGame: 0.42, injuryRisk: 0.28 },
+            'Casemiro': { team: 'Manchester United', goalsPerGame: 0.10, assistsPerGame: 0.12, injuryRisk: 0.14 },
+            'Jude Bellingham': { team: 'Real Madrid', goalsPerGame: 0.22, assistsPerGame: 0.18, injuryRisk: 0.12 }
         };
     }
 
@@ -48,8 +104,9 @@ class FootballPredictor {
         const t2 = this.getTeamStats(team2);
 
         if (!t1 || !t2) {
+            const teamList = Object.keys(this.teamStats).slice(0, 10).join(', ');
             return {
-                error: 'Team not found. Try: Manchester United, Liverpool, Manchester City, Arsenal, etc.'
+                error: `Team not found. Try: ${teamList}, etc.`
             };
         }
 
@@ -95,7 +152,7 @@ class FootballPredictor {
 
         if (!t1 || !t2) {
             return {
-                error: 'Team not found. Try: Manchester United, Liverpool, Manchester City, Arsenal, etc.'
+                error: 'Team not found. Please check team name spelling.'
             };
         }
 
@@ -130,14 +187,15 @@ class FootballPredictor {
         const team = this.getTeamStats(teamName);
 
         if (!player) {
+            const playerList = Object.keys(this.playerStats).slice(0, 10).join(', ');
             return {
-                error: `Player "${playerName}" not found. Try: Cristiano Ronaldo, Lionel Messi, Robert Lewandowski, etc.`
+                error: `Player "${playerName}" not found. Try: ${playerList}, etc.`
             };
         }
 
         if (!team) {
             return {
-                error: 'Team not found. Try: Manchester United, Liverpool, Manchester City, Arsenal, etc.'
+                error: 'Team not found. Please check team name spelling.'
             };
         }
 
@@ -165,7 +223,7 @@ class FootballPredictor {
 
         if (!player) {
             return {
-                error: `Player "${playerName}" not found. Try: Cristiano Ronaldo, Lionel Messi, Robert Lewandowski, etc.`
+                error: `Player "${playerName}" not found. Check spelling and try again.`
             };
         }
 
@@ -184,8 +242,11 @@ class FootballPredictor {
 
     // Helper methods
     getTeamStats(teamName) {
-        const team = teamName.charAt(0).toUpperCase() + teamName.slice(1).toLowerCase();
-        return this.teamStats[team];
+        // Case-insensitive team lookup
+        const team = Object.keys(this.teamStats).find(
+            t => t.toLowerCase() === teamName.toLowerCase()
+        );
+        return team ? this.teamStats[team] : null;
     }
 
     getPlayerStats(playerName) {
@@ -206,6 +267,16 @@ class FootballPredictor {
         if (risk > 0.3) return 'Consider rotation or rest';
         if (risk > 0.2) return 'Monitor closely before match day';
         return 'Available for selection';
+    }
+
+    // Get all teams
+    getAllTeams() {
+        return Object.keys(this.teamStats).sort();
+    }
+
+    // Get all players
+    getAllPlayers() {
+        return Object.keys(this.playerStats).sort();
     }
 }
 
